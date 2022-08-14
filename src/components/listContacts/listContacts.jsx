@@ -1,16 +1,18 @@
 import { useGetContactsQuery } from '../../redux/contactsSlice';
 import { useState } from 'react';
+import { ListItemContacts } from './listContacts.styled';
+
 import { ContactItem } from '../contactsItem/contactsItem';
-import { Filter } from '../filter';
+import { Filter } from '../filter/filter';
 
 export function ListContacts() {
   const [serchName, setSerchName] = useState('');
-  // const [contacts, setContacts] = useState('');
   const { data } = useGetContactsQuery();
 
   if (!data) {
     return;
   }
+
   let contacts = data;
 
   if (serchName.length > 0) {
@@ -22,11 +24,11 @@ export function ListContacts() {
   return (
     <>
       <Filter serchName={setSerchName} />
-      <ul>
+      <ListItemContacts>
         {contacts.map(contact => (
           <ContactItem key={contact.id} contact={contact} />
         ))}
-      </ul>
+      </ListItemContacts>
     </>
   );
 }

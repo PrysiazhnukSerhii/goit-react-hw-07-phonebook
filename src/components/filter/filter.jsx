@@ -1,8 +1,10 @@
+import { Form, Span } from './filter.styled';
+
 export function Filter({ serchName }) {
   return (
-    <form>
+    <Form>
       <label>
-        Find contacts by name
+        <Span> Find contacts by name</Span>
         <input
           type="text"
           onChange={e => {
@@ -10,6 +12,6 @@ export function Filter({ serchName }) {
           }}
         />
       </label>
-    </form>
+    </Form>
   );
 }

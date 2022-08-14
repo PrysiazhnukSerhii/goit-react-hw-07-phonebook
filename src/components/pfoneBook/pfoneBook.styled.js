@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const BookForm = styled.form`
+  margin-left: 40px;
   border: 1px solid black;
   width: 300px;
 `;
@@ -24,4 +25,9 @@ export const BookButton = styled.button`
   background-color: #2196f3;
   border: none;
   border-radius: 4px;
+
+  &: disabled {
+    background-color: rgb(168, 171, 172);
+    color: black;
+  }
 `;

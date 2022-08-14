@@ -3,15 +3,24 @@ import { useState } from 'react';
 import { useCreateContactMutation } from '../../redux/contactsSlice';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+import { useGetContactsQuery } from '../../redux/contactsSlice';
+
 export function PhoneBookForm() {
   const [name, setName] = useState('');
   const [pfone, setPfone] = useState('');
 
-  const [updatePost] = useCreateContactMutation();
+  const { data } = useGetContactsQuery();
+
+  const [updatePost, { isLoading }] = useCreateContactMutation();
 
   const onSubmitForm = async e => {
     e.preventDefault();
     e.currentTarget.reset();
+
+    if (data.find(e => e.name === name)) {
+      alert(`${name} is already in contacts`);
+      return;
+    }
 
     try {
       await updatePost({
@@ -48,7 +57,9 @@ export function PhoneBookForm() {
           onChange={e => setPfone(e.target.value)}
         />
       </BookItem>
-      <BookButton type="submit">Add contact</BookButton>
+      <BookButton type="submit" disabled={isLoading}>
+        {isLoading ? 'Saves' : 'Add contact'}
+      </BookButton>
     </BookForm>
   );
 }
