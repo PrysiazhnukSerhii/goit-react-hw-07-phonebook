@@ -1,6 +1,5 @@
 import { ListContacts } from './listContacts/listContacts';
 import { PhoneBookForm } from './pfoneBook/pfoneBookForm';
-import { Filter } from './filter';
 
 export const App = () => {
   return (
@@ -11,7 +10,7 @@ export const App = () => {
       <PhoneBookForm />
 
       <h2>Contacts</h2>
-      <Filter />
+
       <ListContacts />
     </div>
   );

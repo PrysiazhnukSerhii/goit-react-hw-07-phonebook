@@ -1,5 +1,3 @@
-// import { nanoid } from 'nanoid';
-
 import { BookForm, BookItem, BookButton } from './pfoneBook.styled';
 import { useState } from 'react';
 import { useCreateContactMutation } from '../../redux/contactsSlice';

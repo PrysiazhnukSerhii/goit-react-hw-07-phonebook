@@ -1,13 +1,13 @@
-export function Filter() {
+export function Filter({ serchName }) {
   return (
     <form>
       <label>
         Find contacts by name
         <input
           type="text"
-          // onChange={e => {
-          //   dispatch(filterName(e.target.value));
-          // }}
+          onChange={e => {
+            serchName(e.target.value);
+          }}
         />
       </label>
     </form>
