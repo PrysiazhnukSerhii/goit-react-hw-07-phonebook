@@ -1,7 +1,7 @@
 // import { nanoid } from 'nanoid';
 
 import { BookForm, BookItem, BookButton } from './pfoneBook.styled';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useCreateContactMutation } from '../../redux/contactsSlice';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -9,7 +9,7 @@ export function PhoneBookForm() {
   const [name, setName] = useState('');
   const [pfone, setPfone] = useState('');
 
-  const [updatePost, { isSuccess }] = useCreateContactMutation();
+  const [updatePost] = useCreateContactMutation();
 
   const onSubmitForm = async e => {
     e.preventDefault();

@@ -1,14 +1,9 @@
-
 import { ContactItem } from '../contactsItem/contactsItem';
 
-import {
-  useGetContactsQuery,
-  useDeletContactMutation,
-} from '../../redux/contactsSlice';
+import { useGetContactsQuery } from '../../redux/contactsSlice';
 
 export function ListContacts() {
   const { data } = useGetContactsQuery();
-  const [updatePost, { isLoading }] = useDeletContactMutation();
 
   if (!data) {
     return;
